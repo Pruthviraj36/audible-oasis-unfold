@@ -3,6 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Home } from "@/pages/Home";
 import { Library } from "@/pages/Library";
 import { Profile } from "@/pages/Profile";
+import { Search } from "@/pages/Search";
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState("home");
@@ -14,7 +15,7 @@ const Index = () => {
       case "library":
         return <Library />;
       case "search":
-        return <Library />; // Using Library page for search as well
+        return <Search />;
       case "profile":
         return <Profile />;
       default:

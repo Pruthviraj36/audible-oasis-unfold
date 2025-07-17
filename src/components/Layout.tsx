@@ -1,6 +1,7 @@
-import { Book, Home, Library, Search, User } from "lucide-react";
+import { Book, Home, Library, Search, User, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AudioPlayer } from "@/components/AudioPlayer";
+import { useNavigate } from "react-router-dom";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,6 +10,8 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children, currentPage = "home", onNavigate }: LayoutProps) => {
+  const navigate = useNavigate();
+  
   const navItems = [
     { id: "home", label: "Home", icon: Home },
     { id: "library", label: "Library", icon: Library },
@@ -42,9 +45,22 @@ export const Layout = ({ children, currentPage = "home", onNavigate }: LayoutPro
             ))}
           </nav>
 
-          <Button variant="premium" size="sm">
-            Upgrade
-          </Button>
+          <div className="flex items-center space-x-2">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={() => navigate("/settings")}
+            >
+              <Settings className="h-4 w-4" />
+            </Button>
+            <Button 
+              variant="premium" 
+              size="sm"
+              onClick={() => navigate("/login")}
+            >
+              Sign In
+            </Button>
+          </div>
         </div>
       </header>
 

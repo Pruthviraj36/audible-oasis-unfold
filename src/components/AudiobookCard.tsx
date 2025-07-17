@@ -21,6 +21,7 @@ interface AudiobookCardProps {
 }
 
 export const AudiobookCard = ({ book, variant = "grid" }: AudiobookCardProps) => {
+  const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
 
